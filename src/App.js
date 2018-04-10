@@ -2,25 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { toggleSerbian, changePage } from './actions'
 import AboutPage from './components/AboutPage'
+import AsciiImage from './components/AsciiImage'
 import './App.css';
 
 class App extends Component {
 
   handlePageClick = (event) => {
+    console.log(event.target)
     this.props.changePage(event.target.id)
   }
 
   handleCurrentPage = () => {
     if(this.props.currentPage === 'home'){
       return (
-        <p className="App-intro">
+        <div className="intro">
+          <div className='container'>
+            Home
+          </div>
           {
             this.props.isSerbian ?
               'Да започнете, промените <code>src/App.js</code> и сачувајте да освежите страницу.'
               :
               'To get started, edit <code>src/App.js</code> and save to reload.'
           }
-        </p>
+          'To get started, edit <code>src/App.js</code> and save to reload.'
+        </div>
       )
     }else if(this.props.currentPage === 'About Me'){
       return <AboutPage />
@@ -47,20 +53,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1 className="App-title">{this.props.isSerbian ? 'НД' : 'ND'}</h1>
-            <ul>
-              <li><span id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</span></li>
-              <li><span id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</span></li>
-              <li><span id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</span></li>
-              <li><span id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</span></li>
-            </ul>
+      <div>
+        <div className='NavHeader'>
+          <ul class="nav justify-content-center" style={{'background-color':'#222', 'color':'white'}}>
+            <a class="navbar-brand links" id='home' onClick={this.handlePageClick}>{this.props.isSerbian ? 'НД' : 'ND'}</a>
+            <li class="nav-item">
+              <a class="nav-link"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled"id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</a>
+            </li>
+          </ul>
         </div>
-        <div className='col'>
-          <p className="App-intro">
-            {this.handleCurrentPage()}
-          </p>
+        <div className='App'>
+          <div className='col'>
+            <div className="intro">
+              {this.handleCurrentPage()}
+            </div>
+          </div>
         </div>
       </div>
     );

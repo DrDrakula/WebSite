@@ -2,72 +2,25 @@
   font-family: monospace;
 }
 
-.col {
-  margin-left: 2%;
-  /* text-align: center; */
+.nav {
+  font-size: 1.5rem;
 }
 
-.App {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+#home {
+  font-size: 1.75rem;
 }
 
-.App-header {
-  text-align: center;
-  color: white;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-
-  background-color: #222;
-
-  display: grid;
-  grid-template-rows: 30% 80%;
-  font-size: 15px;
-}
-.App-header span:hover{
-  cursor: pointer;
-  color: blue;
+body {
+  font-size: 1.25rem;
 }
 
-.App-header ul{
-  margin-right: 10px;
-  font-size: 25px;
-  list-style-type: none;
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
+  /* color:red; */
+  cursor:pointer;
 }
-@media only screen and (max-width: 800px) {
 
-
-    .App {
-      display: grid;
-      grid-template-columns: 20% 80%;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-    }
-
-    .App-header {
-      text-align: center;
-      color: white;
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-
-      background-color: #222;
-
-      display: grid;
-      grid-template-rows: 40% 60%;
-      font-size: 1px;
-    }
-
-    .App-header ul{
-      margin-right: 5px;
-      font-size: 10px;
-      list-style-type: none;
-    }
-
-    .App-title {
-      font-size: 13px;
-    }
+@media only screen and (max-width: 600px) {
+  #ascii {
+    font-size: 0.1vw;
+  }
 }
