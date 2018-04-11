@@ -8,9 +8,12 @@ export default function root(state = defaultState, action){
     case 'TOGGLE_SERBIAN':
       console.log(state)
       let newCheat;
+      let title = document.querySelector('title')
       if(state.isSerbian){
+        title.innerText = 'ND'
         newCheat = 'hocusrpski'
       }else{
+        title.innerText = 'НД'
         newCheat = 'iwantenglish'
       }
       return {...state, isSerbian: !state.isSerbian, cheat: newCheat}

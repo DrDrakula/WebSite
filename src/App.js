@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { toggleSerbian, changePage } from './actions'
 import AboutPage from './components/AboutPage'
-import AsciiImage from './components/AsciiImage'
+import ContactPage from './components/ContactPage'
+import ProjectsPage from './components/ProjectsPage'
+import ResumePage from './components/ResumePage'
+// import AsciiImage from './components/AsciiImage'
 import './App.css';
 
 class App extends Component {
@@ -13,23 +16,32 @@ class App extends Component {
   }
 
   handleCurrentPage = () => {
-    if(this.props.currentPage === 'home'){
-      return (
-        <div className="intro">
-          <div className='container'>
-            Home
-          </div>
-          {
-            this.props.isSerbian ?
+    switch(this.props.currentPage){
+      case 'home':
+        return (
+          <div className="container intro">
+            <h2>
+              {this.props.isSerbian ? 'Добродошли' : 'Welcome'}
+            </h2>
+            <br/>
+            {
+              this.props.isSerbian ?
               'Да започнете, промените <code>src/App.js</code> и сачувајте да освежите страницу.'
               :
               'To get started, edit <code>src/App.js</code> and save to reload.'
-          }
-          'To get started, edit <code>src/App.js</code> and save to reload.'
-        </div>
-      )
-    }else if(this.props.currentPage === 'About Me'){
-      return <AboutPage />
+            }
+          </div>
+        )
+      case 'About Me':
+        return <AboutPage />
+      case 'Contact':
+        return <ContactPage />
+      case 'Projects':
+        return <ProjectsPage />
+      case 'Resume':
+        return <ResumePage />
+      default:
+        return null
     }
   }
 
@@ -55,19 +67,19 @@ class App extends Component {
     return (
       <div>
         <div className='NavHeader'>
-          <ul class="nav justify-content-center" style={{'background-color':'#222', 'color':'white'}}>
-            <a class="navbar-brand links" id='home' onClick={this.handlePageClick}>{this.props.isSerbian ? 'НД' : 'ND'}</a>
-            <li class="nav-item">
-              <a class="nav-link"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
+          <ul className="nav justify-content-center" style={{'backgroundColor':'#222', 'color':'white'}}>
+            <a className="navbar-brand links" id='home' onClick={this.handlePageClick}>{this.props.isSerbian ? 'НД' : 'ND'}</a>
+            <li className="nav-item">
+              <a className="nav-link"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link"id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</a>
+            <li className="nav-item">
+              <a className="nav-link"id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link"id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</a>
+            <li className="nav-item">
+              <a className="nav-link"id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled"id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</a>
+            <li className="nav-item">
+              <a className="nav-link disabled"id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</a>
             </li>
           </ul>
         </div>
