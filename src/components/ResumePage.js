@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 const ResumePage = (props) => {
   return (
     <div className='container'>
+      <h2>Resume | <a href='https://drive.google.com/file/d/1vyOhX5jPfzXtfcntI6a1F-oUMd3saU1Q/view' rel="noopener noreferrer" target='_blank'>pdf</a></h2>
       <br/>
       <div className='resume-page'>
         <h3 className='resume-div'>TECHNICAL PROJECTS</h3>
@@ -20,7 +21,7 @@ const ResumePage = (props) => {
         </div>
         <br/>
         <div>
-          <h4>Sandwich Shop - <a>GitHub Frontend</a> | <a>GitHub Backend</a> | <a>Demo</a></h4>
+          <h4>Sandwich Shop - <a href='https://github.com/DrDrakula/sandwich-shop-frontend' rel="noopener noreferrer" target='_blank'>GitHub Frontend</a> | <a href='https://github.com/DrDrakula/sandwich-shop-backend' rel="noopener noreferrer" target='_blank'>GitHub Backend</a> | <a href='https://www.youtube.com/watch?v=x1NUTggPFDo' rel="noopener noreferrer" target='_blank'>Demo</a></h4>
           Video Game with the goal of earning money by making and selling sandwiches
           <ul>
             <li>Designed an interactive front end with JavaScript</li>
@@ -31,7 +32,7 @@ const ResumePage = (props) => {
         </div>
         <br/>
         <div>
-          <h4>Super Cool Game – GitHub Frontend | GitHub Backend | Demo</h4>
+          <h4>Super Cool Game – <a href='https://github.com/DrDrakula/super-cool-game-frontend' rel="noopener noreferrer" target='_blank'>GitHub Frontend</a> | <a href='https://github.com/DrDrakula/super-cool-game-backend' rel="noopener noreferrer" target='_blank'>GitHub Backend</a> | <a href='https://www.youtube.com/watch?v=fhehd-HO22w' rel="noopener noreferrer" target='_blank'>Demo</a></h4>
           2D Video Game where you avoid ghosts, collect coins and navigate through a maze
           <ul>
             <li>Used React for designing the front end, as well as custom CSS and Materialize</li>
@@ -53,6 +54,7 @@ const ResumePage = (props) => {
             <li>Often completed assigned ticket list ahead of time and assisted other technicians with their assignments</li>
           </ul>
         </div>
+        <br/>
         <div>
           <h4>Tempo, Belgrade, Serbia</h4>
           Quality Control and Security Supervisor, December 2014 – May 2015
@@ -62,6 +64,7 @@ const ResumePage = (props) => {
             <li>Trained new employees on processes and procedures</li>
           </ul>
         </div>
+        <br/>
         <div>
           <h4>Third Serbia, Belgrade, Serbia</h4>
           Campaign Assistant, October 2014 – December 2014
@@ -81,6 +84,7 @@ const ResumePage = (props) => {
             <li>Full Stack Web Development, Ruby on Rails and JavaScript web development program</li>
           </ul>
         </div>
+        <br/>
         <div>
           <h4>Information Technology School - Belgrade, Serbia - 2015 – 2016</h4>
           <ul>

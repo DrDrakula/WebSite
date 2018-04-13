@@ -5,7 +5,8 @@ import AboutPage from './components/AboutPage'
 import ContactPage from './components/ContactPage'
 import ProjectsPage from './components/ProjectsPage'
 import ResumePage from './components/ResumePage'
-// import AsciiImage from './components/AsciiImage'
+import BlogsPage from './components/BlogsPage'
+import AsciiImage from './components/AsciiImage'
 import './App.css';
 
 class App extends Component {
@@ -19,17 +20,30 @@ class App extends Component {
     switch(this.props.currentPage){
       case 'home':
         return (
-          <div className="container intro">
+          <div className="container">
             <h2>
               {this.props.isSerbian ? 'Добродошли' : 'Welcome'}
             </h2>
             <br/>
-            {
-              this.props.isSerbian ?
-              'Да започнете, промените <code>src/App.js</code> и сачувајте да освежите страницу.'
-              :
-              'To get started, edit <code>src/App.js</code> and save to reload.'
-            }
+            <div className='row'>
+              <div className='col'>
+                <h2 className='resume-div' style={{'paddingBottom':'2px'}}>Styles</h2>
+                {
+                  this.props.isSerbian ?
+                  'Да започнете, промените <code>src/App.js</code> и сачувајте да освежите страницу.'
+                  :
+                  'To get started, edit <code>src/App.js</code> and save to reload.'
+                }
+                <div>
+                  <AsciiImage />
+                  <br/>
+                </div>
+              </div>
+
+              <div className='col'>
+                <BlogsPage />
+              </div>
+            </div>
           </div>
         )
       case 'About Me':
@@ -70,16 +84,18 @@ class App extends Component {
           <ul className="nav justify-content-center" style={{'backgroundColor':'#222', 'color':'white'}}>
             <a className="navbar-brand links" id='home' onClick={this.handlePageClick}>{this.props.isSerbian ? 'НД' : 'ND'}</a>
             <li className="nav-item">
-              <a className="nav-link"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
+              <a className="nav-link phone-links"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
+            </li>
+            {
+            //<li className="nav-item">
+              //<a className="nav-link"id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</a>
+            //</li>
+            }
+            <li className="nav-item">
+              <a className="nav-link phone-links"id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link"id='Projects' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Пројекти' : 'Projects'}</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link"id='Resume' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Резиме' : 'Resume'}</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled"id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</a>
+              <a className="nav-link disabled phone-links"id='Contact' onClick={this.handlePageClick}>{this.props.isSerbian ? 'Контакт' : 'Contact'}</a>
             </li>
           </ul>
         </div>
