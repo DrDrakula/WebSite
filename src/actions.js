@@ -10,3 +10,10 @@ export function changePage(page){
     payload: page
   }
 }
+
+export function changeStyle(style){
+  return {
+    type: 'CHANGE_STYLE',
+    payload: style
+  }
+}

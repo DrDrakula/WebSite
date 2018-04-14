@@ -7,7 +7,14 @@ const ResumePage = (props) => {
       <h2>Resume | <a href='https://drive.google.com/file/d/1vyOhX5jPfzXtfcntI6a1F-oUMd3saU1Q/view' rel="noopener noreferrer" target='_blank'>pdf</a></h2>
       <br/>
       <div className='resume-page'>
-        <h3 className='resume-div'>TECHNICAL PROJECTS</h3>
+        <p>
+          Full stack web developer with a passion for coding. With experience in Ruby on Rails and JavaScript and a background in
+          IT, I discovered coding as a teenager through my curiosity about how products I loved were built. I bring strong skills in
+          teamwork and motivating others that help companies maintain a great environment while keeping it professional. I always
+          seek opportunities to solve problems and help others.
+        </p>
+        <br/>
+        <h3 className={`resume-div-${props.currentStyle}`}>TECHNICAL PROJECTS</h3>
         <div>
           <h4>WeWatch - <a href='https://github.com/DrDrakula/WeWatch' rel="noopener noreferrer" target='_blank'>GitHub</a> | <a href='https://www.youtube.com/watch?v=BarrjKgcmb0' rel="noopener noreferrer" target='_blank'>Demo</a></h4>
           A chatroom app made to allow users to watch online videos at the same time
@@ -44,7 +51,7 @@ const ResumePage = (props) => {
       </div>
       <br/>
       <div>
-        <h3 className='resume-div'>EMPLOYMENT HISTORY</h3>
+        <h3 className={`resume-div-${props.currentStyle}`}>EMPLOYMENT HISTORY</h3>
         <div>
           <h4>ASI System Integration, New York, NY</h4>
           Computer Technician, September 2016 – December 2017
@@ -77,7 +84,7 @@ const ResumePage = (props) => {
         <br/>
       </div>
       <div>
-        <h3 className='resume-div'>EDUCATION</h3>
+        <h3 className={`resume-div-${props.currentStyle}`}>EDUCATION</h3>
         <div>
           <h4>Flatiron School - 2018</h4>
           <ul>
@@ -94,7 +101,7 @@ const ResumePage = (props) => {
       </div>
       <br/>
       <div style={{'marginBottom':'20%'}}>
-        <h3 className='resume-div'>TECHNICAL SKILLS</h3>
+        <h3 className={`resume-div-${props.currentStyle}`}>TECHNICAL SKILLS</h3>
         Ruby, Rails, SQL, JavaScript, React, Redux, Python, Java, CSS, HTML
       </div>
     </div>
@@ -103,7 +110,8 @@ const ResumePage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isSerbian: state.isSerbian
+    isSerbian: state.isSerbian,
+    currentStyle: state.currentStyle
   }
 }
 

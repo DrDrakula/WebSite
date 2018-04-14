@@ -1,51 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { toggleSerbian, changePage } from './actions'
+import { toggleSerbian, changePage, changeStyle } from './actions'
 import AboutPage from './components/AboutPage'
 import ContactPage from './components/ContactPage'
 import ProjectsPage from './components/ProjectsPage'
 import ResumePage from './components/ResumePage'
-import BlogsPage from './components/BlogsPage'
-import AsciiImage from './components/AsciiImage'
+import HomePage from './components/HomePage'
 import './App.css';
 
 class App extends Component {
 
   handlePageClick = (event) => {
-    console.log(event.target)
     this.props.changePage(event.target.id)
   }
 
   handleCurrentPage = () => {
     switch(this.props.currentPage){
       case 'home':
-        return (
-          <div className="container">
-            <h2>
-              {this.props.isSerbian ? 'Добродошли' : 'Welcome'}
-            </h2>
-            <br/>
-            <div className='row'>
-              <div className='col'>
-                <h2 className='resume-div' style={{'paddingBottom':'2px'}}>Styles</h2>
-                {
-                  this.props.isSerbian ?
-                  'Да започнете, промените <code>src/App.js</code> и сачувајте да освежите страницу.'
-                  :
-                  'To get started, edit <code>src/App.js</code> and save to reload.'
-                }
-                <div>
-                  <AsciiImage />
-                  <br/>
-                </div>
-              </div>
-
-              <div className='col'>
-                <BlogsPage />
-              </div>
-            </div>
-          </div>
-        )
+        return <HomePage />
       case 'About Me':
         return <AboutPage />
       case 'Contact':
@@ -79,9 +51,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.currentStyle}>
         <div className='NavHeader'>
-          <ul className="nav justify-content-center" style={{'backgroundColor':'#222', 'color':'white'}}>
+          <ul className={`nav justify-content-center ${this.props.currentStyle}-nav-bar`}>
             <a className="navbar-brand links" id='home' onClick={this.handlePageClick}>{this.props.isSerbian ? 'НД' : 'ND'}</a>
             <li className="nav-item">
               <a className="nav-link phone-links"id='About Me' onClick={this.handlePageClick}>{this.props.isSerbian ? 'О мени' : 'About Me'}</a>
@@ -115,8 +87,9 @@ const mapStateToProps = (state) => {
   return{
     cheat: state.cheat,
     isSerbian: state.isSerbian,
-    currentPage: state.currentPage
+    currentPage: state.currentPage,
+    currentStyle: state.currentStyle
   }
 }
 
-export default connect(mapStateToProps, { toggleSerbian, changePage })(App);
+export default connect(mapStateToProps, { toggleSerbian, changePage, changeStyle })(App);

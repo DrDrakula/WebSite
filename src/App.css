@@ -1,11 +1,39 @@
 * {
+}
+
+.monospace{
   font-family: 'IBM Plex Mono', monospace;
 }
 
-.resume-div {
+.colorfull{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.monospace-nav-bar {
+  background-color: #222;
+  color: white;
+}
+
+.colorfull-nav-bar {
+  background-color: blue;
+  color: white;
+}
+
+a:hover{
+  text-decoration: none;
+}
+.resume-div-monospace {
   background-color: #222;
   color: white;
   padding-left: 5px;
+  padding-bottom: 2px;
+}
+
+.resume-div-colorfull {
+  background-color: blue;
+  color: white;
+  padding-left: 5px;
+  padding-top: 5px;
 }
 
 .resume-page a {
@@ -14,6 +42,14 @@
 
 .nav {
   font-size: 1.5rem;
+}
+
+ul.selected {
+  list-style-type: disc;
+}
+
+ul.styles-list {
+  list-style-type: none;
 }
 
 .blog {
@@ -39,8 +75,12 @@ body {
   margin-top: 3%
 }
 #ascii {
-  font-size: 3px;
+  font-size: 2.5px;
   line-height: 3px;
+}
+
+.contact-icons{
+  margin-right: 5px;
 }
 
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
@@ -56,6 +96,10 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 
   #home {
     font-size: 1.5rem;
+  }
+
+  #contact-info {
+    font-size: 1.2rem;
   }
 
   .phone-links {

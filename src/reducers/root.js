@@ -1,7 +1,10 @@
-const defaultState = {currentPage: 'home', cheat: 'hocusrpski', isSerbian: false}
+const defaultState = {currentPage: 'home', currentStyle: 'monospace', cheat: 'hocusrpski', isSerbian: false}
 
 export default function root(state = defaultState, action){
   switch(action.type){
+    case 'CHANGE_STYLE':
+      console.log(state)
+      return {...state, currentStyle: action.payload}
     case 'CHANGE_PAGE':
       console.log(state)
       return {...state, currentPage: action.payload}

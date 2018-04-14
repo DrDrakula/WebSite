@@ -40,7 +40,7 @@ class BlogsPage extends React.Component {
   render () {
     return (
       <div>
-        <h2 className='resume-div' style={{'paddingBottom':'2px'}}>{this.props.isSerbian ? 'Блогови' : 'Blogs'}</h2>
+        <h2 className={`resume-div-${this.props.currentStyle}`}>{this.props.isSerbian ? 'Блогови' : 'Blogs'}</h2>
         <div className='blog-list'>
           {this.state.posts.map(blog => <h4 className='blog' key={blog.id}><a href={blog.link} rel="noopener noreferrer" target='_blank'>{blog.title}</a></h4>)}
         </div>
@@ -51,7 +51,8 @@ class BlogsPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isSerbian: state.isSerbian
+    isSerbian: state.isSerbian,
+    currentStyle: state.currentStyle
   }
 }
 
