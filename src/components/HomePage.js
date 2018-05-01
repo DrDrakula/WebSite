@@ -27,11 +27,11 @@ const HomePage = (props) => {
       <br/>
       <div className='row'>
         <div className='col'>
-          <h2 className={`resume-div-${props.currentStyle}`}>Styles</h2>
+          <h2 className={`resume-div-${props.currentStyle}`}>{props.isSerbian ? 'Стилови' : 'Styles'}</h2>
           <div className='row'>
             <div className='col'>
-              <div><span id='monospace' onClick={handleStyleClick}>{props.currentStyle === 'monospace' ? '• ' : null}Monospace</span></div>
-              <div><span id='colorfull' onClick={handleStyleClick}>{props.currentStyle === 'colorfull' ? '• ' : null}Colorfull</span></div>
+              <div><span id='monospace' onClick={handleStyleClick} className={props.currentStyle === 'monospace' ? 'underlined' : null} style={{'fontFamily': "'IBM Plex Mono', monospace"}}>Monospace</span></div>
+              <div><span id='colorfull' onClick={handleStyleClick} className={props.currentStyle === 'colorfull' ? 'underlined' : null} style={{'fontFamily': "'Josefin Sans', sans-serif"}}>Color</span></div>
             </div>
             <div className='col'>
               {displaySelfPortrait()}
